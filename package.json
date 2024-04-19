@@ -1,0 +1,15 @@
+{
+    "name": "vkm-bot",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.ts",
+    "scripts": {
+        "dev": "nodemon  main.ts"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "grammy": "^1.22.4",
+        "nodemon": "^3.1.0"
+    }
+}
