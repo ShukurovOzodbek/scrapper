@@ -8,4 +8,5 @@ const bot = new Bot(token);
 
 bot.use(utils);
 
+bot.start();
 export default webhookCallback(bot, "std/http");
