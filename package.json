@@ -2,9 +2,9 @@
     "name": "vkm-bot",
     "version": "1.0.0",
     "description": "",
-    "main": "src/main.ts",
+    "main": "src/bot.ts",
     "scripts": {
-        "dev": "nodemon  src/main.ts"
+        "dev": "nodemon  src/bot.ts"
     },
     "author": "",
     "license": "ISC",
