@@ -1,20 +1,42 @@
-import fastify from 'fastify'
+import fastify from "fastify";
+import UsersController from "./users";
 
-const server = fastify()
+const app = fastify({ logger: true });
 
-const PORT: any = process.env.PORT;
-
-console.log(PORT);
-
-
-server.get('/ping', async (request, reply) => {
-    return 'pong\n'
-})
-
-server.listen({ port: PORT }, (err, address) => {
-    if (err) {
-        console.error(err)
-        process.exit(1)
+const fastifyEnv = require('@fastify/env')
+const schema = {
+    type: 'object',
+    required: ['PORT'],
+    properties: {
+        PORT: {
+            type: 'string'
+        }
     }
-    console.log(`Server listening at ${address}`)
-})
+}
+
+const options = {
+    confKey: 'config',
+    schema,
+    dotenv: true,
+    data: process.env
+}
+
+app.register(UsersController)
+
+async function setup() {
+    app.register(fastifyEnv, options)
+    await app.after()
+
+    await app.ready()
+    const PORT: any = process.env.PORT;
+
+    app.listen({ port: PORT }, (err) => {
+        if (err) {
+            console.error(err)
+            process.exit(1)
+        }
+        console.log(`Server listening at http://localhost:3030`)
+    })
+}
+
+setup();
