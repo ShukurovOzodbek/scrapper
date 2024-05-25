@@ -1,7 +1,10 @@
-import {Injectable} from '@nestjs/common';
+import {BadRequestException, Injectable} from '@nestjs/common';
+import {User} from "../../entities/user.entity";
 
 @Injectable()
 export class UserService {
+    user = User
+    
     async get() {
     
     }
@@ -10,8 +13,14 @@ export class UserService {
     
     }
     
-    async create() {
-    
+    async create(body: any) {
+        try {
+            await this.user.create(body);
+        } catch (e) {
+            throw new BadRequestException(e.message);
+        }
+        
+        
     }
     
     async patch() {
