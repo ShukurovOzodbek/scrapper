@@ -13,14 +13,12 @@ export class UserService {
     
     }
     
-    async create(body: any) {
-        try {
-            await this.user.create(body);
-        } catch (e) {
-            throw new BadRequestException(e.message);
-        }
-        
-        
+    async signup(body: any) {
+    
+    }
+    
+    async signin(body: any) {
+    
     }
     
     async patch() {
