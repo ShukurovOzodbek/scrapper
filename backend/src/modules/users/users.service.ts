@@ -2,11 +2,11 @@ import {BadRequestException, Injectable} from '@nestjs/common';
 import {User} from "../../entities/user.entity";
 
 @Injectable()
-export class UserService {
+export class UsersService {
     user = User
     
     async get() {
-    
+        return {ok: true, status: 200}
     }
     
     async getCurrent(param: any) {

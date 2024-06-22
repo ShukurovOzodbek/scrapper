@@ -1,12 +1,12 @@
 import {Body, Controller, Delete, Get, Param, ParamData, Patch, Post, UsePipes, ValidationPipe} from '@nestjs/common';
-import {UserService} from "./user.service";
+import {UsersService} from "./users.service";
 import {CreateUserDto} from "../../dtos/users/create-user.dto";
 import {SigninUsersDto} from "../../dtos/users/signin-users.dto";
 
-@Controller('user')
-export class UserController {
+@Controller('users')
+export class UsersController {
     
-    constructor(private userService: UserService) {
+    constructor(private userService: UsersService) {
     }
     
     @Get()
